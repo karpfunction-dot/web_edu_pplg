@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <!-- CSS Custom -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <span class="navbar-brand">Backend App</span>
+    <div>
+      <span class="text-white me-3" id="namaUser"></span>
+      <button class="btn btn-danger btn-sm" onclick="logout()">Logout</button>
+    </div>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<div class="d-flex main">
+
+  <!-- SIDEBAR -->
+  <div class="knt-sidebar p-3">
+    <h5>Menu</h5>
+    <ul class="list-unstyled">
+      <li><a href="#" class="menu-link active">Dashboard</a></li>
+      <li><a href="#" class="menu-link">Produk</a></li>
+      <li><a href="#" class="menu-link">Transaksi</a></li>
+    </ul>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="knt-content flex-fill p-4">
+    <h3>Dashboard</h3>
+    <p>Selamat datang di sistem Kinanti.</p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="knt-footer text-center p-2">
+  © 2026 Kinanti App
+</div>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+
+<script>
+// proteksi login
+if(localStorage.getItem("login") !== "true"){
+  window.location.replace("login.html");
+}
+
+// tampilkan nama user
+document.getElementById("namaUser").innerText =
+  "Halo, " + localStorage.getItem("username");
+
+// logout
+function logout(){
+  localStorage.removeItem("login");
+  localStorage.removeItem("username");
+  window.location.replace("login.html");
+}
+</script>
+
+</body>
+</html>
