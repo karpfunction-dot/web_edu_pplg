@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Bootstrap -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -14,37 +15,65 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
+
+    <!-- tombol sidebar mobile -->
+    <button class="btn btn-outline-light d-md-none me-2"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#sidebarMobile">
+      ☰
+    </button>
+
     <span class="navbar-brand">Backend App</span>
+
     <div>
       <span class="text-white me-3" id="namaUser"></span>
       <button class="btn btn-danger btn-sm" onclick="logout()">Logout</button>
     </div>
+
   </div>
 </nav>
 
-<!-- MAIN -->
-<div class="d-flex main">
-
-  <!-- SIDEBAR -->
-  <div class="knt-sidebar p-3">
+<!-- SIDEBAR MOBILE -->
+<div class="offcanvas offcanvas-start" id="sidebarMobile">
+  <div class="offcanvas-header">
     <h5>Menu</h5>
-    <ul class="list-unstyled">
-      <li><a href="#" class="menu-link active">Dashboard</a></li>
-      <li><a href="#" class="menu-link">Produk</a></li>
-      <li><a href="#" class="menu-link">Transaksi</a></li>
+    <button class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+
+  <div class="offcanvas-body">
+    <ul class="nav flex-column">
+      <li><a class="nav-link active" href="#">Dashboard</a></li>
+      <li><a class="nav-link" href="#">Produk</a></li>
+      <li><a class="nav-link" href="#">Transaksi</a></li>
     </ul>
   </div>
+</div>
 
-  <!-- CONTENT -->
-  <div class="knt-content flex-fill p-4">
-    <h3>Dashboard</h3>
-    <p>Selamat datang di sistem Kinanti.</p>
+<!-- MAIN -->
+<div class="container-fluid mt-3">
+  <div class="row">
+
+    <!-- SIDEBAR DESKTOP -->
+    <div class="d-none d-md-block col-md-2 knt-sidebar p-3">
+      <h5>Menu</h5>
+      <ul class="list-unstyled">
+        <li><a href="#" class="menu-link active">Dashboard</a></li>
+        <li><a href="#" class="menu-link">Produk</a></li>
+        <li><a href="#" class="menu-link">Transaksi</a></li>
+      </ul>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="col-12 col-md-10 knt-content p-4">
+      <h3>Dashboard</h3>
+      <p>Selamat datang di sistem Kinanti.</p>
+    </div>
+
   </div>
-
 </div>
 
 <!-- FOOTER -->
-<div class="knt-footer text-center p-2">
+<div class="knt-footer text-center p-2 mt-3">
   © 2026 Kinanti App
 </div>
 
